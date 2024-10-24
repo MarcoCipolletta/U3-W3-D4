@@ -1,0 +1,64 @@
+<header
+  class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between p-3 mb-4 border-bottom"
+>
+  <div class="col-md-3 mb-2 mb-md-0">
+    <a
+      routerLink="/"
+      class="d-inline-flex link-body-emphasis text-decoration-none"
+    >
+      LOGO
+    </a>
+  </div>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="link-secondary"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link px-2"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="link-secondary"
+        class="nav-link px-2"
+      >
+        Dashboard</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/users"
+        routerLinkActive="link-secondary"
+        class="nav-link px-2"
+      >
+        Utenti</a
+      >
+    </li>
+  </ul>
+
+  <div *ngIf="!isLoggedIn" class="col-md-3 text-end">
+    <button
+      routerLink="/auth/login"
+      type="button"
+      class="btn btn-outline-primary me-2"
+    >
+      Login
+    </button>
+    <button routerLink="/auth/register" type="button" class="btn btn-primary">
+      Sign-up
+    </button>
+  </div>
+  <div *ngIf="isLoggedIn" class="col-md-3 text-end">
+    <button
+      (click)="logout()"
+      type="button"
+      class="btn btn-outline-primary me-2"
+    >
+      Logout
+    </button>
+  </div>
+</header>
